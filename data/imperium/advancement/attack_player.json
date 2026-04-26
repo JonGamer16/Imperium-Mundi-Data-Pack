@@ -1,0 +1,10 @@
+{
+  "criteria": {
+    "attacked_entity": {
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "rewards": {
+    "function": "imperium:internal/reset_drought"
+  }
+}

@@ -1,0 +1,55 @@
+{
+    "description": "Backstab",
+    "supported_items": "#enchantable/weapon",
+    "slots": ["mainhand"],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": 
+    {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": 
+    {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 1,
+    "effects": 
+    {
+        "damage":
+        [
+            {
+                "effect":
+                {
+                    "type": "multiply",
+                    "factor":
+                    {
+                        "type": "linear",
+                        "base": 1.50,
+                        "per_level_above_first": 0.50
+                    }
+                },
+                "requirements": 
+                {   
+                    "condition": "entity_scores",
+                    "entity": "attacker",
+                    "scores": 
+                    {
+                        "im_backstabflag": 1
+                    }
+                }
+            }
+        ],
+        "tick": 
+        [
+            {
+                "effect":
+                {
+                    "type": "run_function",
+                    "function": "imperium:enchantments/backstab_context"
+                }
+            }
+        ]
+    }
+}

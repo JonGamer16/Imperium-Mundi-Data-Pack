@@ -1,0 +1,33 @@
+{
+    "description": "Single Use",
+    "supported_items": "#minecraft:enchantable/weapon",
+    "slots": ["any"],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": 
+    {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": 
+    {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 2,
+    "effects": 
+    {
+        "minecraft:post_attack": 
+        [
+            {
+                "affected": "attacker",
+                "enchanted": "attacker",
+                "effect": 
+                {
+                    "type": "run_function",
+                    "function": "imperium:enchantments/single_use"
+                }
+            }
+        ]
+    }
+}

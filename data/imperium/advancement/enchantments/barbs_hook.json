@@ -1,0 +1,30 @@
+{
+    "criteria":
+    {
+        "hook_event":
+        {
+            "trigger": "minecraft:fishing_rod_hooked",
+            "conditions":
+            {
+                "rod":
+                {
+                    "items":
+                    [
+                        "minecraft:fishing_rod"
+                    ],
+                    "components":
+                    {
+                        "enchantments":
+                        {
+                            "minecraft:lure":1
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "rewards":
+    {
+        "function": "imperium:enchantments/barbs_hook"
+    }
+}

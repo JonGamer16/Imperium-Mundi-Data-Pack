@@ -1,0 +1,35 @@
+{
+  "criteria":
+  {
+    "blocked_hit":
+    {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions":
+      {
+        "player":
+        {
+          "equipment":
+          {
+            "mainhand":
+            {
+              "components":
+              {
+                "enchantments":
+                {
+                    "imperium:shield_pierce":1
+                }
+              }
+            }
+          }
+        },
+        "damage":
+        {
+          "blocked": true
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "imperium:enchantments/shield_pierce_apply"
+  }
+}

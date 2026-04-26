@@ -1,0 +1,52 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern":
+    [
+        "  d",
+        "dd ",
+        "sd "
+    ],
+    "key": 
+    {
+        "s":"stick",
+        "d":"diamond"
+    },
+    "result": 
+    {
+        "id": "diamond_sword",
+        "count": 1,
+        "components":
+        {
+            "minecraft:item_name":
+                "Diamond Rapier",
+            "attribute_modifiers": 
+            [
+                {
+                    "type": "attack_damage",
+                    "amount": 1,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "attack_damage"
+                },
+                {
+                    "type": "attack_speed",
+                    "amount": 2,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "attack_speed"
+                },
+                {
+                    "type": "attack_knockback",
+                    "amount": -0.5,
+                    "operation": "add_multiplied_base",
+                    "slot": "mainhand",
+                    "id": "attack_knockback"
+                }
+            ],
+            "enchantable":{
+                "value": 10
+            }
+        }
+    }
+}
