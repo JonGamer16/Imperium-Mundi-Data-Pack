@@ -2,16 +2,16 @@
   / .      \/           /
  /            .        /
 /                     /
-\   I m p e r i u m   \
+\   I M P E R I U M   \
  \                     L
-  \      M u n d i      \
+  \      M U N D I      \
   /   .                 /
  /                   . /
 /_____/\__________/\__/
 
 
 Imperium Mundi Kit PvP Datapack
-Ver 1.21.10 (format 88)
+Ver 26.1.2 (format 101)
                                                                                |
 About: This is a vanilla replica of Imperium Mundi, the free-for-all Kit PVP
 minigame created by awesomebutter234 and JonGamer16. You pick a kit out of the
@@ -37,10 +37,10 @@ to add different things:
           [data/imperium/function/kits]
 
     4.  [Scoreboard tags] whatever items or abilities you want to add to it,
-          make it set the player's scoreboard value for those items
+          make it set the player's tags or scoreboard value for those items
 
     5.  [? Summon Teams] if it uses a summon, add a team join command in the
-          kit function
+          kit function. Right now it just puts you in a team for the mob type
 
 - Healing Items:
 
@@ -92,10 +92,3 @@ to add different things:
 
     6.  [death] add a score reset command in "death"
           [data/imperium/function/arena/death.mcfunction]
-
-
-
-For readability and to reduce file size, I only include "minecraft" namespaces
-where necessary for what I made. Anywhere in the existing files that doesn't
-come with custom content will need to be given minecraft namespaces to avoid
-conflicts.
