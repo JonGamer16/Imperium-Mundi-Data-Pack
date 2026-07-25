@@ -13,6 +13,11 @@
 Imperium Mundi Kit PvP Datapack
 Ver 26.1.2 (format 101)
                                                                                |
+
+DISCLAIMER: This is NOT the same version of the pack from Smithed Summit. For
+the one showcased in the booth, go to this repo:
+https://github.com/JonGamer16/Imperium-Booth-26.2
+
 About: This is a vanilla replica of Imperium Mundi, the free-for-all Kit PVP
 minigame created by awesomebutter234 and JonGamer16. You pick a kit out of the
 extensive roster and fight for gold to unlock new kits and other things. The
