@@ -122,9 +122,9 @@ which is allowed. Only these need work:
    Core got 2 files the inventory missed: `predicate/motion/falling_creative` (motion library) and
    `minecraft/tags/enchantment/exclusive_set/crossbow` (Volley). All three damage-type tags were split.
 4. **Test each combination:**
-   - core alone: clean log, the core enchantments work on hand-enchanted items, no gamerule
+   - ✅ core alone (Kit PvP and SMP disabled, 2026-10-28): clean log, the core enchantments work on hand-enchanted items, no gamerule
      changes,
    - core + kit PvP: identical to today (✅ with SMP also loaded, 2026-10-28),
-   - core + survival: ✅ recipes craft; High Jump, crossbow enchants, Straight Flight OK (2026-10-28),
-   - all three.
+   - core + survival (Kit PvP disabled): ✅ recipes craft; High Jump, crossbow enchants, Straight Flight OK (2026-10-28),
+   - ✅ all three (kits play as before, 2026-10-28).
 5. **Start the survival content:** recipes, item markers, the mana bar, the craftables.

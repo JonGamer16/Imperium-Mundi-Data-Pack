@@ -11,7 +11,8 @@ there is one, carries the same date in its title.
   constants, `floating`, `motion/falling_creative`, `#imperium:human`, `volley_reset`). SMP: the 3 recipes.
 - Kit PvP now **requires Core**. Tags split so each pack lists only its own IDs.
 - Tested: kits play as before with all three packs loaded. SMP recipes craft; Levent's High Jump
-  items, the crossbow enchantments and Straight Flight's 10 s despawn all work.
+  items, the crossbow enchantments and Straight Flight's 10 s despawn all work with Kit PvP
+  disabled, both with and without SMP. Core runs on its own.
 
 ## 2026-10-28 — Split step 2 (core load/tick) + Mummy head skin
 
