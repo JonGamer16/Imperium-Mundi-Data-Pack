@@ -101,7 +101,13 @@ once, as a loot table under `loot_table/smp_weapons/`, and reused everywhere it'
   imperium:smp_weapons/<id>`. No build step, but the recipe book shows the placeholder, shift-click
   crafting needs care, and crafter blocks can't be handled (their output never reaches a player).
 
-Not decided yet.
+**Decided (2026-10-28): keep both copies, synced by `! Imperium SMP/scripts/sync_items.ts`.**
+Edit the item in either file; the script copies it to the other. It pairs `recipe/<name>.json` with
+`loot_table/smp_weapons/<name>.json` and decides which side was edited by comparing each against
+`scripts/item_sync_state.json` (the item as of the last sync), not by file times. If both sides
+changed differently, it writes nothing and reports the conflict. A recipe without a loot table gets
+one created. Run `bun scripts/sync_items.ts` from the SMP folder, or `--watch` to sync on every save.
+Loot tables must stay simple (one pool, one item entry, `set_components` / `set_count` only).
 
 ### Consumables: recipes + stack limits instead of cooldowns
 
