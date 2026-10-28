@@ -5,7 +5,9 @@ there is one, carries the same date in its title.
 
 ## 2026-10-28 — Split step 2 (core load/tick) + Mummy head skin
 
-### Split step 2 *(untested)*
+### Split step 2 *(High Jump tested; the rest untested)*
+
+- Removed the 10 temporary `test/probe_*` advancement and function files.
 
 - New `core/load`, `core/tick`, `core/second`, registered in `#minecraft:load` / `#minecraft:tick`.
   `main` calls `core/load` first. Core's objectives (`im.temp`, `im.motion`, backstab, high jump,
