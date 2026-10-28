@@ -3,6 +3,15 @@
 Newest first. Dates are when the change was made in the test world. The matching commit, once
 there is one, carries the same date in its title.
 
+## 2026-10-28 — Pack split: Core / Kit PvP / SMP
+
+- The one pack is now three folders in `datapacks/`: `! Imperium Core`, `! Imperium Kit PVP` (renamed
+  from `! Imperium Booth 26.2`) and `! Imperium SMP`. The git repository moved up to `datapacks/`.
+- Core: 45 files (motion library, 11 self-contained enchantments + their functions, `core/*`,
+  constants, `floating`, `motion/falling_creative`, `#imperium:human`, `volley_reset`). SMP: the 3 recipes.
+- Kit PvP now **requires Core**. Tags split so each pack lists only its own IDs.
+- Tested: kits play as before with all three packs loaded.
+
 ## 2026-10-28 — Split step 2 (core load/tick) + Mummy head skin
 
 ### Split step 2 *(High Jump tested; the rest untested)*

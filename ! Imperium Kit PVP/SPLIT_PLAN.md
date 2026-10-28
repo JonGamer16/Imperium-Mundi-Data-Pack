@@ -1,6 +1,8 @@
 # Three-pack split — plan
 
-Status: **step 2 done (core/load, core/tick, core/second inside the single pack), awaiting in-game test** (2026-10-27). This file is the inventory and the
+Status: **steps 1–3 done (2026-10-28).** The packs are `datapacks/! Imperium Core`, `! Imperium Kit PVP` and
+`! Imperium SMP`; the git repository root is `datapacks/`. Core + Kit PvP + SMP tested in-game (kits OK).
+Next: step 4's remaining combinations, then step 5. This file is the inventory and the
 coupling map to work from. Recent changes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## Goal
@@ -112,15 +114,17 @@ which is allowed. Only these need work:
 
 ## Suggested order
 
-1. **Commit the current state** (26.3 port + debug pass) as a baseline. Move the
+1. ✅ **Commit the current state** (26.3 port + debug pass) as a baseline. Move the
    `test/probe_*` files out first.
-2. **Add `core/load` and `core/second` inside the single pack**, with Straight Flight aging by its
+2. ✅ **Add `core/load` and `core/second` inside the single pack**, with Straight Flight aging by its
    own tag. Test: behaviour should be identical.
-3. **Move files into three pack folders**, following the inventory above. No ID changes.
+3. ✅ **Move files into three pack folders**, following the inventory above. No ID changes.
+   Core got 2 files the inventory missed: `predicate/motion/falling_creative` (motion library) and
+   `minecraft/tags/enchantment/exclusive_set/crossbow` (Volley). All three damage-type tags were split.
 4. **Test each combination:**
    - core alone: clean log, the core enchantments work on hand-enchanted items, no gamerule
      changes,
-   - core + kit PvP: identical to today,
+   - core + kit PvP: identical to today (✅ with SMP also loaded, 2026-10-28),
    - core + survival,
    - all three.
 5. **Start the survival content:** recipes, item markers, the mana bar, the craftables.
