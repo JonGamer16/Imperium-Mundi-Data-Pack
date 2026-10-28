@@ -10,7 +10,8 @@ there is one, carries the same date in its title.
 - Core: 45 files (motion library, 11 self-contained enchantments + their functions, `core/*`,
   constants, `floating`, `motion/falling_creative`, `#imperium:human`, `volley_reset`). SMP: the 3 recipes.
 - Kit PvP now **requires Core**. Tags split so each pack lists only its own IDs.
-- Tested: kits play as before with all three packs loaded.
+- Tested: kits play as before with all three packs loaded. SMP recipes craft; Levent's High Jump
+  items, the crossbow enchantments and Straight Flight's 10 s despawn all work.
 
 ## 2026-10-28 — Split step 2 (core load/tick) + Mummy head skin
 

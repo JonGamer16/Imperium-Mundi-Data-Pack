@@ -125,6 +125,6 @@ which is allowed. Only these need work:
    - core alone: clean log, the core enchantments work on hand-enchanted items, no gamerule
      changes,
    - core + kit PvP: identical to today (✅ with SMP also loaded, 2026-10-28),
-   - core + survival,
+   - core + survival: ✅ recipes craft; High Jump, crossbow enchants, Straight Flight OK (2026-10-28),
    - all three.
 5. **Start the survival content:** recipes, item markers, the mana bar, the craftables.
