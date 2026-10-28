@@ -26,8 +26,8 @@ it can sit next to other packs in someone's survival world.
    references. A pack can still be renamed later on its own if needed.
 2. **The cooldown engine and ability gating are kit-PvP only.** That covers `update_cooldowns`,
    `set_cd`, `kit_dispatch`, the `combat/cooldown_*` triggers, `imperium:ability_zone` and
-   `im.kitted`. Survival items get a different balancing system: a shared, chargeable mana bar that
-   everything spends from, or something else. That's designed later, in the survival pack.
+   `im.kitted`. Survival items get a different balancing system, designed in the survival pack.
+   *(Updated 2026-10-28: a shared mana bar is probably not needed; see "Survival design".)*
 3. **Gamerules and other world-wide settings live in kit PvP.** Core and survival must not set any.
    Kit PvP turns natural regen off: `gamerule natural_health_regeneration false` in `main`, added
    2026-10-27. The `loop_1s` comment always said it was set there, but the line was missing.
@@ -78,9 +78,53 @@ something in survival applies the tag. That's harmless, but keep it in mind.
 
 | Path | Notes |
 |---|---|
-| `recipe/*` | The 3 existing recipes (diamond dagger / glaive / rapier) predate 26.2 and need fixing. The glaive's `item_name` is a JSON string. |
-| `loot_table/smp_weapons/` | Already exists, but empty (created 2026-10-27). |
-| *(new)* | Mana bar or other balancing, craftables, loot injections, survival versions of any kit abilities worth porting. |
+| `recipe/*` | The 3 existing recipes (diamond dagger / glaive / rapier) predate 26.2 and need fixing. The glaive's `item_name` is a JSON string. More weapons are coming. |
+| `loot_table/smp_weapons/` | Already exists, but empty (created 2026-10-27). Intended home of the weapon definitions (see "Survival design"). |
+| *(new)* | Craftables, loot injections, survival versions of kit abilities. See "Survival design". |
+
+## Survival design (notes, 2026-10-28)
+
+Direction from the 2026-10-28 discussion. Nothing here is built yet.
+
+### Weapons: one definition, stored as loot tables
+
+More weapons are planned, so each weapon's item (components, name, enchantments) should be defined
+once, as a loot table under `loot_table/smp_weapons/`, and reused everywhere it's needed (recipes,
+`/loot give`, loot injections).
+
+**Catch (checked against vanilla-mcdoc, 26.3):** a recipe's `result` can only be an inline item
+(`ItemStackTemplate`). No recipe type can reference a loot table. Ways to keep one source anyway:
+
+- **Generate the recipes from the loot tables** with a script (the repo already has Bun + `scripts/`).
+  The recipe book shows the real item and crafters work. Needs a re-run after editing a weapon.
+- **Placeholder result + `recipe_crafted` advancement** that swaps it for `loot give ... loot
+  imperium:smp_weapons/<id>`. No build step, but the recipe book shows the placeholder, shift-click
+  crafting needs care, and crafter blocks can't be handled (their output never reaches a player).
+
+Not decided yet.
+
+### Consumables: recipes + stack limits instead of cooldowns
+
+Many kit items can be balanced in survival purely by crafting cost and `max_stack_size`, with no
+charge system: **leap feathers, thrown webs, potions**, and similar consumables.
+
+### Charge meters: few left, so a shared mana bar may be unnecessary
+
+Most kit abilities either repair an item or hand out a consumable, and those become recipes (above).
+Only **Rastus** and **Mummy** have a true charge meter, plus **Livvy's** specialised soup mechanic.
+That leaves little for a shared mana bar to charge, so it's probably not worth building. Instead:
+
+| Kit | Ability | Survival idea |
+|---|---|---|
+| Levent | Reversal shield | Goes on a disabling cooldown after a reversal (like a shield hit by an axe), instead of the kit cooldown. |
+| Mummy | Golem Throw | Redo as an enchantment. |
+| Mummy / Smokey | Grappling hooks | Redo as enchantments. |
+| Rastus | Focus Attack | Isolate as its own enchantment. |
+| Rastus | Dash | Costs hunger (exhaustion), like the spear's lunge, instead of a charge. |
+| Rastus | Power shield | Becomes a shield enchantment. |
+| Livvy | Lifesteal soup | Not decided. |
+
+Enchantment versions would live in core (usable by survival), following decision 4.
 
 ## Coupling to cut
 
@@ -105,9 +149,8 @@ which is allowed. Only these need work:
 
 ## Open questions
 
-- **Which kit abilities to port to survival.** Candidates that are mostly self-contained: Smokey's
-  grapple (`grappling`), Livvy's web, Mummy's crystal bomb, the leap feather. Each needs its kit-tag
-  gates and slot-engine refills replaced by the survival balancing system.
+- **Which kit abilities to port to survival.** First ideas are in "Survival design". Still open:
+  Mummy's crystal bomb, Livvy's soup, and how weapon recipes reference their loot tables.
 - **Stale Summit comments** in `internal/contain`, `grapple_track`, `mgrapple_track` and
   `smokey/loop_kit`, plus the `im.fighting → summit.no_regen` leftover in `loop_1s`. Clean up
   while moving files.
@@ -127,4 +170,5 @@ which is allowed. Only these need work:
    - core + kit PvP: identical to today (✅ with SMP also loaded, 2026-10-28),
    - core + survival (Kit PvP disabled): ✅ recipes craft; High Jump, crossbow enchants, Straight Flight OK (2026-10-28),
    - ✅ all three (kits play as before, 2026-10-28).
-5. **Start the survival content:** recipes, item markers, the mana bar, the craftables.
+5. **Start the survival content:** decide how recipes reference weapon loot tables, fix the 3
+   recipes, then consumable recipes and the ability enchantments (see "Survival design").
