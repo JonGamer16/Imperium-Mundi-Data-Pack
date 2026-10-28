@@ -1,0 +1,10 @@
+{
+    "pack": {
+        "min_format": [
+            121,
+            0
+        ],
+        "max_format": 121,
+        "description": "Imperium Mundi core: enchantments and motion library. No gamerules; safe in any world."
+    }
+}

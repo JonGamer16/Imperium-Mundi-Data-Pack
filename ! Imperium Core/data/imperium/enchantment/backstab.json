@@ -1,0 +1,51 @@
+{
+    "description": {
+        "text": "Backstab",
+        "color": "gold"
+    },
+    "supported_items": "#enchantable/weapon",
+    "slots": [
+        "mainhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 1,
+    "effects": {
+        "damage": [
+            {
+                "effect": {
+                    "type": "multiply",
+                    "factor": {
+                        "type": "linear",
+                        "base": 1.5,
+                        "per_level_above_first": 0.5
+                    }
+                },
+                "requirements": {
+                    "type": "entity_scores",
+                    "entity": "attacker",
+                    "scores": 
+                    {
+                        "im_backstabflag": {"max": 1,"min": 1}
+                    }
+                }
+            }
+        ],
+        "tick": [
+            {
+                "effect": {
+                    "type": "run_function",
+                    "function": "imperium:enchantments/backstab"
+                }
+            }
+        ]
+    }
+}
