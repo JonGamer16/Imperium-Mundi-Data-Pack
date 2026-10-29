@@ -3,6 +3,20 @@
 Newest first. Dates are when the change was made in the test world. The matching commit, once
 there is one, carries the same date in its title.
 
+## 2026-10-29 — Knockback Control
+
+- New Core enchantment `imperium:knockback_control` (`enchantments/kb_control*`). On a player's melee hit
+  it scales the knockback vanilla already applied (`post_attack` runs after it, verified 2026-10-28),
+  so sprint hits, uncharged hits and the Knockback enchantment keep working at the new strength.
+- Per-weapon numbers live in the weapon's `custom_data`: `"{imperium_kb:{horizontal:30,vertical:0}}"`.
+  `horizontal` is the % of vanilla knockback kept (negative pulls in); `vertical` adds lift as a %
+  of 0.4 b/t. Mobs get `Motion` written; players go through the motion library *(player victims untested)*.
+- **The weapon needs the enchantment too**, or the numbers do nothing. `sync_items.ts` adds it, plus
+  a gray tooltip line, to any SMP weapon with `imperium_kb`. Hand-made items need it added by hand.
+- Diamond Dagger: 30% knockback. It also keeps its `attack_knockback` −50% modifier, so the two stack.
+- Test tool: `/function imperium:test/kb_test_give` gives a 30% rapier, a pulling scythe and a launching spade.
+- Tested on mobs: all three test weapons.
+
 ## 2026-10-28 — Pack split: Core / Kit PvP / SMP
 
 - The one pack is now three folders in `datapacks/`: `! Imperium Core`, `! Imperium Kit PVP` (renamed

@@ -10,6 +10,9 @@
 // item as of the last sync. The side that differs from it is the edited one and is copied over the
 // other. If BOTH sides changed differently, nothing is written and the conflict is reported.
 // Files are rewritten with 4-space JSON formatting.
+//
+// Generated parts: a weapon with imperium_kb in its custom_data gets the Knockback Control enchantment
+// and a gray tooltip line added to BOTH copies (see decorate below). Edit the numbers, not those.
 
 import { createHash } from "crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, watch, writeFileSync } from "fs";
@@ -81,6 +84,47 @@ function toLoot(lt: any | undefined, item: Item) {
     return lt;
 }
 
+// Knockback Control (Core enchantment imperium:knockback_control). A weapon opts in with
+//   "minecraft:custom_data": "{imperium_kb:{horizontal:30,vertical:0}}"
+// and this adds the enchantment plus a tooltip line describing the numbers; remove imperium_kb and
+// both go away again. The line is recognised by its "insertion" marker, so other lore is kept.
+const KB_ENCH = "imperium:knockback_control";
+const KB_MARK = "imperium_kb";
+const comp = (c: Record<string, any>, k: string) => (("minecraft:" + k) in c ? "minecraft:" + k : k);
+function kbNumbers(c: Record<string, any>): { h: number; v: number } | undefined {
+    const cd = c[comp(c, "custom_data")];
+    const snbt = typeof cd === "string" ? cd : cd === undefined ? "" : JSON.stringify(cd);
+    if (!snbt.includes(KB_MARK)) return undefined;
+    if (typeof cd !== "string") throw new Error(`write custom_data as an SNBT string so ${KB_MARK} stays ints`);
+    const h = snbt.match(/horizontal\s*:\s*(-?\d+)\s*[,}]/), v = snbt.match(/vertical\s*:\s*(-?\d+)\s*[,}]/);
+    if (!h || !v) throw new Error(`${KB_MARK} needs whole-number horizontal and vertical, e.g. {horizontal:30,vertical:0}`);
+    return { h: +h[1], v: +v[1] };
+}
+function kbText({ h, v }: { h: number; v: number }): string {
+    const parts = [];
+    if (h < 0) parts.push(`Pulls targets in (${-h}%)`);
+    else if (h === 0) parts.push("No knockback");
+    else if (h !== 100) parts.push(`Knockback: ${h}%`);
+    if (v > 0) parts.push(`Launches upward (+${v}%)`);
+    else if (v < 0) parts.push(`Flatter knockback (${v}%)`);
+    return parts.join(", ") || "Normal knockback";
+}
+function decorate(item: Item): Item {
+    const c: Record<string, any> = structuredClone(item.components ?? {});
+    const kb = kbNumbers(c);
+    const loreKey = comp(c, "lore"), enchKey = comp(c, "enchantments");
+    const lore = ((c[loreKey] ?? []) as any[]).filter((l) => !(l && typeof l === "object" && l.insertion === KB_MARK));
+    const ench: Record<string, number> = { ...(c[enchKey] ?? {}) };
+    delete ench[KB_ENCH];
+    if (kb) {
+        lore.unshift({ text: kbText(kb), color: "gray", italic: false, insertion: KB_MARK });
+        ench[KB_ENCH] = 1;
+    }
+    if (lore.length) c[loreKey] = lore; else delete c[loreKey];
+    if (Object.keys(ench).length) c[enchKey] = ench; else delete c[enchKey];
+    return { id: item.id, count: item.count, ...(Object.keys(c).length && { components: c }) };
+}
+
 function sync() {
     const state: Record<string, string> = existsSync(STATE) ? readJson(STATE) : {};
     const names = new Set(
@@ -95,22 +139,24 @@ function sync() {
             if (recipe && !recipe.result) continue; // not an item recipe (e.g. a special recipe type)
             if (!recipe) { console.warn(`! ${name}: loot table has no recipe; write recipe/${name}.json first`); problems++; continue; }
             const r = fromRecipe(recipe), hr = hash(r);
-            if (!loot) {
-                mkdirSync(LOOT, { recursive: true });
-                writeJson(lp, toLoot(undefined, r));
-                state[name] = hr; console.log(`+ ${name}: created loot table from recipe`); continue;
+            const l = loot && fromLoot(loot), hl = l && hash(l);
+            // Pick the copy to keep: the only one, the common one, or the one edited since last sync.
+            let src = r, note = loot ? "" : "created loot table from recipe";
+            if (l && hr !== hl) {
+                const rChanged = hr !== state[name], lChanged = hl !== state[name];
+                if (rChanged && lChanged) {
+                    console.warn(`! ${name}: recipe and loot table were BOTH edited and differ; fix one by hand, then re-run`);
+                    problems++; continue;
+                }
+                [src, note] = rChanged ? [r, "recipe -> loot table"] : [l, "loot table -> recipe"];
             }
-            const l = fromLoot(loot), hl = hash(l);
-            if (hr === hl) { state[name] = hr; continue; }
-            const rChanged = hr !== state[name], lChanged = hl !== state[name];
-            if (rChanged && lChanged) {
-                console.warn(`! ${name}: recipe and loot table were BOTH edited and differ; fix one by hand, then re-run`);
-                problems++;
-            } else if (rChanged) {
-                writeJson(lp, toLoot(loot, r)); state[name] = hr; console.log(`> ${name}: recipe -> loot table`);
-            } else {
-                toRecipe(recipe, l); writeJson(rp, recipe); state[name] = hl; console.log(`< ${name}: loot table -> recipe`);
-            }
+            // Generated parts (knockback enchantment + tooltip) are refreshed on both copies.
+            const d = decorate(src), hd = hash(d);
+            if (hd !== hr) { toRecipe(recipe, d); writeJson(rp, recipe); }
+            if (hd !== hl) { mkdirSync(LOOT, { recursive: true }); writeJson(lp, toLoot(loot, d)); }
+            if (!note && (hd !== hr || hd !== hl)) note = "updated generated tooltip/enchantment";
+            if (note) console.log(`${loot ? ">" : "+"} ${name}: ${note}`);
+            state[name] = hd;
         } catch (err) {
             console.warn(`! ${name}: ${(err as Error).message}`); problems++;
         }

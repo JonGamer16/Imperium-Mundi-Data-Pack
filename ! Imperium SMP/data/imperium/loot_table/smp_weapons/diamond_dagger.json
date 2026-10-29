@@ -40,7 +40,19 @@
                                         "slot": "mainhand",
                                         "id": "entity_interaction_range"
                                     }
-                                ]
+                                ],
+                                "custom_data": "{imperium_kb:{horizontal:30,vertical:0}}",
+                                "lore": [
+                                    {
+                                        "text": "Knockback: 30%",
+                                        "color": "gray",
+                                        "italic": false,
+                                        "insertion": "imperium_kb"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "imperium:knockback_control": 1
+                                }
                             }
                         }
                     ]
