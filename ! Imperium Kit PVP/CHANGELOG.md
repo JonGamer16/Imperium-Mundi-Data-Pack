@@ -3,6 +3,20 @@
 Newest first. Dates are when the change was made in the test world. The matching commit, once
 there is one, carries the same date in its title.
 
+## 2026-10-31 — Knockback Control on player victims *(untested)*
+
+- Players can't be scaled like mobs: vanilla sends their knockback to the client and resets the
+  server's copy before `post_attack`, and any push replaces what the client got. `kb_control_player`
+  rebuilds vanilla's knockback (`kb_control_rebuild`), scales it, and pushes by the difference.
+  Constants from a still husk: 0.45 standing, 0.95 sprinting, 0.4 lift.
+- The sprint bonus can't be read after the hit (every attack resets sprint, charge is hidden, misses
+  are invisible). So Knockback Control weapons get `minimum_attack_charge` 0.85 (added by
+  `sync_items.ts` when missing), and the enchantment's tick effect records sprinting while held
+  (`kb_control_sprint`, `im.kbSprint`). Sprinting last tick + a landed hit = sprint bonus.
+- Weapons at 100% / +0 leave player victims untouched (exact vanilla).
+- Debug: `test/toggle_kb_trace` prints vanilla vs rebuilt knockback on mob hits (use a still NoAI husk).
+- To check: whether vanilla's sprint threshold is 85% or 90% charge, and shield-blocked hits.
+
 ## 2026-10-29 — Knockback Control
 
 - New Core enchantment `imperium:knockback_control` (`enchantments/kb_control*`). On a player's melee hit
