@@ -8,6 +8,7 @@ scoreboard players set #1 imperium.const 1
 scoreboard players set #2 imperium.const 2
 scoreboard players set #3 imperium.const 3
 scoreboard players set #10 imperium.const 10
+scoreboard players set #20 imperium.const 20
 scoreboard players set #100 imperium.const 100
 scoreboard players set #40 imperium.const 40
 scoreboard players set #250 imperium.const 250

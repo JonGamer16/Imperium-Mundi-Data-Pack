@@ -35,6 +35,23 @@
                     }
                 }
             }
+        ],
+        "minecraft:tick": [
+            {
+                "requirements": {
+                    "type": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                        "flags": {
+                            "is_sprinting": true
+                        }
+                    }
+                },
+                "effect": {
+                    "type": "minecraft:run_function",
+                    "function": "imperium:enchantments/kb_control_sprint"
+                }
+            }
         ]
     }
 }

@@ -13,6 +13,8 @@
 //
 // Generated parts: a weapon with imperium_kb in its custom_data gets the Knockback Control enchantment
 // and a gray tooltip line added to BOTH copies (see decorate below). Edit the numbers, not those.
+// It also gets minimum_attack_charge 0.85 if it has none (your own value is never overwritten, and
+// removing imperium_kb leaves it in place).
 
 import { createHash } from "crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, watch, writeFileSync } from "fs";
@@ -90,6 +92,7 @@ function toLoot(lt: any | undefined, item: Item) {
 // both go away again. The line is recognised by its "insertion" marker, so other lore is kept.
 const KB_ENCH = "imperium:knockback_control";
 const KB_MARK = "imperium_kb";
+const KB_MIN_CHARGE = 0.85;
 const comp = (c: Record<string, any>, k: string) => (("minecraft:" + k) in c ? "minecraft:" + k : k);
 function kbNumbers(c: Record<string, any>): { h: number; v: number } | undefined {
     const cd = c[comp(c, "custom_data")];
@@ -119,6 +122,10 @@ function decorate(item: Item): Item {
     if (kb) {
         lore.unshift({ text: kbText(kb), color: "gray", italic: false, insertion: KB_MARK });
         ench[KB_ENCH] = 1;
+        // Player victims rebuild vanilla's sprint bonus, which needs every landed hit charged past the sprint-hit threshold.
+        // Added only if missing; a lower value you set yourself is kept (CTS-style sprint hits).
+        const chargeKey = comp(c, "minimum_attack_charge");
+        if (!(chargeKey in c)) c[chargeKey] = KB_MIN_CHARGE;
     }
     if (lore.length) c[loreKey] = lore; else delete c[loreKey];
     if (Object.keys(ench).length) c[enchKey] = ench; else delete c[enchKey];

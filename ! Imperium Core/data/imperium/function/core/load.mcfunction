@@ -23,5 +23,7 @@ scoreboard objectives add im_high_jump dummy
 scoreboard objectives add im_high_jump_eq dummy
 # Straight Flight: arrow age in seconds (core/second)
 scoreboard objectives add im_arrowAge dummy
+# Knockback Control: game tick the holder was last seen sprinting
+scoreboard objectives add im.kbSprint dummy
 
 function imperium:main/constants

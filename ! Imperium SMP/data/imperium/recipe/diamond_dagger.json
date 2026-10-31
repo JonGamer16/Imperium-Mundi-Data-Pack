@@ -56,7 +56,8 @@
             ],
             "enchantments": {
                 "imperium:knockback_control": 1
-            }
+            },
+            "minimum_attack_charge": 0.85
         }
     }
 }
