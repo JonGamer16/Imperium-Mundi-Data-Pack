@@ -1,0 +1,255 @@
+{
+  "type": "minecraft:multi_action",
+  "title":
+  {
+    "text": "Choose Your Fighter",
+    "color": "gold",
+    "bold": true,
+    "italic": false
+  },
+  "pause": false,
+  "after_action": "close",
+  "columns": 3,
+  "body":
+  [
+    {
+      "type": "minecraft:item",
+      "item":
+      {
+        "id": "minecraft:iron_sword",
+        "count": 1,
+        "components":
+        {
+          "attribute_modifiers": [],
+          "custom_name":
+          {
+            "text": "Jeru Cliffshield",
+            "bold": true,
+            "italic": false,
+            "color": "#aaaaaa",
+            "shadow_color": [1.0, 1.0, 1.0, 0.2]
+          },
+          "minecraft:lore":
+          [
+            {
+              "italic": false, "color": "gold",
+              "text": "======================================="
+            },
+            { "text": "" },
+            { 
+              "text": "", "italic": false, "bold": true,
+              "extra":
+              [
+                { "text": "Power   ",    "color": "#cc4444" },
+                { "text": "Control  ",    "color": "#4444cc" },
+                { "text": "Mobility  ",   "color": "#44cc44" },
+                { "text": "Attack Speed", "color": "#ccaa44" }
+              ]
+            },
+            {
+              "text": "", "italic": false,
+              "extra":
+              [
+                { "color":"gold",      "text":"✦✦✦"},
+                { "color":"dark_gray", "text":"✦     "},
+                { "color":"gold",      "text":"✦✦✦"},
+                { "color":"dark_gray", "text":"✦     "},
+                { "color":"gold",      "text":"✦"},
+                { "color":"dark_gray", "text":"✦✦✦     "},
+                { "color":"gold",      "text":"✦✦"},
+                { "color":"dark_gray", "text":"✦✦"}
+              ]
+            },
+            { "text": "" },
+            {
+              "text": "", "italic": false,
+              "extra":
+              [
+                {"text":"[Item] ", "color":"light_purple"},
+                {"text":"Tower Shield: Blocks all damage and", "color":"yellow"}
+              ]
+            },
+            {
+                "text": "  knockback from arrows and melee attacks", "color": "yellow", "italic": false
+            },
+            { "text": "" },
+            {
+              "italic": false, "color": "gold",
+              "text": "======================================="
+            }
+          ]
+        }
+      },
+      "show_tooltip": true,
+      "width": 64
+    },
+    {
+      "type": "minecraft:item",
+      "item":
+      {
+        "id": "minecraft:bow",
+        "count": 1,
+        "components":
+        {
+          "minecraft:custom_name":
+          {
+            "text": "\uE001 Quin Meowdy",
+            "color": "gray",
+            "italic": false
+          },
+          "minecraft:lore":
+          [
+            {
+                "text": "Long-range tactical kit.",
+                "italic": false,
+                "color": "#cccc77"
+            },
+            {
+                "text": "Weak armor, high mobility.",
+                "italic": false,
+                "color": "#cccc77"
+            }
+          ]
+        }
+      },
+      "show_tooltip": true,
+      "width": 64
+    },
+    {
+      "type": "minecraft:item",
+      "item":
+      {
+        "id": "minecraft:netherite_chestplate",
+        "count": 1,
+        "components":
+        {
+          "minecraft:custom_name":
+          {
+            "text": "Knight",
+            "color": "gray",
+            "italic": false
+          },
+          "minecraft:lore":
+          [
+            {
+                "text": "\uE001",
+                "italic": false,
+                "color": "#cccc77"
+            },
+            {
+                "text": "Slow speed, massive health.",
+                "italic": false,
+                "color": "#cccc77"
+            }
+          ]
+        }
+      },
+      "show_tooltip": true,
+      "width": 64
+    }
+  ],
+  "actions":
+  [
+    {
+      "label":
+      {
+        "text": "Jeru Cliffshield",
+        "bold": true,
+        "italic": false,
+        "color": "#aaaaaa",
+        "shadow_color": [1.0, 1.0, 1.0, 0.2]
+      },
+      "action":
+      {
+        "type": "run_command",
+        "command": "trigger givekit set 11"
+      },
+      "tooltip": 
+      [
+        {
+          "text": "Jeru Cliffshield",
+          "bold": true,
+          "italic": false,
+          "color": "#aaaaaa",
+          "shadow_color": [1.0, 1.0, 1.0, 0.2]
+        },
+        {
+          "italic": false, "color": "gold",
+          "text": "======================================="
+        },
+        { "text": "" },
+        { 
+          "text": "", "italic": false, "bold": true,
+          "extra":
+          [
+            { "text": "Power   ",    "color": "#cc4444" },
+            { "text": "Control  ",    "color": "#4444cc" },
+            { "text": "Mobility  ",   "color": "#44cc44" },
+            { "text": "Attack Speed", "color": "#ccaa44" }
+          ]
+        },
+        {
+          "text": "", "italic": false,
+          "extra":
+          [
+            { "color":"gold",      "text":"✦✦✦"},
+            { "color":"dark_gray", "text":"✦     "},
+            { "color":"gold",      "text":"✦✦✦"},
+            { "color":"dark_gray", "text":"✦     "},
+            { "color":"gold",      "text":"✦"},
+            { "color":"dark_gray", "text":"✦✦✦     "},
+            { "color":"gold",      "text":"✦✦"},
+            { "color":"dark_gray", "text":"✦✦"}
+          ]
+        },
+        { "text": "" },
+        {
+          "text": "", "italic": false,
+          "extra":
+          [
+            {"text":"[Item] ", "color":"light_purple"},
+            {"text":"Tower Shield: Blocks all damage and", "color":"yellow"}
+          ]
+        },
+        {
+            "text": "  knockback from arrows and melee attacks", "color": "yellow", "italic": false
+        },
+        { "text": "" },
+        {
+          "italic": false, "color": "gold",
+          "text": "======================================="
+        }
+      ]
+    },
+    {
+      "label":
+      {
+        "text": "Archer",
+        "color": "#A8DADC",
+        "bold": true
+      },
+      "action":
+      {
+        "type": "run_command",
+        "command": "trigger givekit set 21"
+      }
+    },
+    {
+      "label":
+      {
+        "text": "Tank",
+        "color": "#457B9D",
+        "bold": true
+      },
+      "action":
+      {
+        "type": "run_command",
+        "command": "trigger givekit set 41"
+      }
+    }
+  ],
+  "exit_action":
+  {
+    "label": "Cancel"
+  }
+}

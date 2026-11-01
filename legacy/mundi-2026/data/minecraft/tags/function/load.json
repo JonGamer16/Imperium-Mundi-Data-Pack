@@ -1,0 +1,9 @@
+{
+    "values": [
+        "imperium:main",
+        "imperium:init_tdm",
+        "imperium:init_kitpvp_events",
+        "player_motion:internal/technical/load",
+        "pdb:zprivate/load"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:stick",
+    "X": "#minecraft:stone_tool_materials"
+  },
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stone_sword",
+    "components": 
+    {
+        "attribute_modifiers": 
+        [
+            {
+                "type": "attack_damage",
+                "id": "base_attack_damage",
+                "amount": 4,
+                "operation": "add_value",
+                "slot": "mainhand"
+            },
+            {
+                "type": "attack_speed",
+                "id": "base_attack_speed",
+                "amount": -2.4,
+                "operation": "add_value",
+                "slot": "mainhand"
+            }
+        ]
+    }
+  }
+}

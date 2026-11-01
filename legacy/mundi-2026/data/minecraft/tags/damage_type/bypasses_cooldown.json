@@ -1,0 +1,14 @@
+{
+    "values":
+    [
+        "minecraft:arrow",
+        "minecraft:trident",
+        "imperium:light",
+        "minecraft:fall",
+        "minecraft:on_fire",
+        "minecraft:hot_floor",
+        "minecraft:freeze",
+        "minecraft:magic",
+        "minecraft:wither"
+    ]
+}

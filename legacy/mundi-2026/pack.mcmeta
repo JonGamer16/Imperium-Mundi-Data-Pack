@@ -1,0 +1,11 @@
+{
+  "pack": {
+    "pack_format": 101,
+    "supported_formats":
+    {
+      "min_inclusive": 100,
+      "max_inclusive": 1000
+    },
+    "description": "Data Pack for Vanilla version of Imperium Mundi Kit PVP"
+  }
+}

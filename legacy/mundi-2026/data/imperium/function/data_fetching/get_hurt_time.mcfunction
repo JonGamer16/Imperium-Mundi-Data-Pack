@@ -1,0 +1,1 @@
+execute store result score @s im_hurt_time run data get entity @s HurtTime 10
