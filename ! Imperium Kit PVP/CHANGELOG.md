@@ -3,6 +3,15 @@
 Newest first. Dates are when the change was made in the test world. The matching commit, once
 there is one, carries the same date in its title.
 
+## 2026-11-08 — True Shot bow enchantment, in Core *(tested 2026-11-09: full draws stack)*
+
+- `imperium:true_shot` (bows): arrows ignore the shooter's momentum and vanilla's random spread.
+  The arrow is re-aimed along the shooter's view at the speed the draw earned (vanilla's power
+  curve, full at 20 ticks); gravity and drag are unchanged.
+- Draw time comes from a `using_item` advancement (`enchantments/true_shot_draw`) that records the
+  game tick a draw started; no tick function. Mobs, or a shot without a draw record, stay vanilla.
+- Debug: `/function imperium:test/toggle_true_shot_trace` prints each step per arrow.
+
 ## 2026-10-31 — Knockback Control on player victims *(untested)*
 
 - Players can't be scaled like mobs: vanilla sends their knockback to the client and resets the

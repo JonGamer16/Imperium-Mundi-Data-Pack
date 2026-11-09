@@ -23,6 +23,10 @@ scoreboard objectives add im_high_jump dummy
 scoreboard objectives add im_high_jump_eq dummy
 # Straight Flight: arrow age in seconds (core/second)
 scoreboard objectives add im_arrowAge dummy
+# True Shot: game ticks the current draw started and was last seen (enchantments/true_shot_draw)
+scoreboard objectives add im_tsStart dummy
+scoreboard objectives add im_tsLast dummy
+advancement revoke @a only imperium:enchantments/true_shot_draw
 # Knockback Control: game tick the holder was last seen sprinting
 scoreboard objectives add im.kbSprint dummy
 

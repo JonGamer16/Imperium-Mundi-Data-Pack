@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "draw": {
+            "trigger": "minecraft:using_item",
+            "conditions": {
+                "item": {
+                    "items": "minecraft:bow",
+                    "predicates": {
+                        "minecraft:enchantments": [
+                            {
+                                "enchantments": "imperium:true_shot"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "imperium:enchantments/true_shot_draw"
+    }
+}
