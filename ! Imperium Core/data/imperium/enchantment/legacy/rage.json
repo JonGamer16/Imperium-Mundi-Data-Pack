@@ -1,0 +1,45 @@
+{
+    "description": {
+        "text": "Rage",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/melee_weapon",
+    "slots": [
+        "mainhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 3,
+    "effects": {
+        "minecraft:damage": [
+            {
+                "requirements": {
+                    "type": "minecraft:entity_scores",
+                    "entity": "attacker",
+                    "scores": {
+                        "im_health": {
+                            "min": 0,
+                            "max": 10
+                        }
+                    }
+                },
+                "effect": {
+                    "type": "minecraft:multiply",
+                    "factor": {
+                        "type": "minecraft:linear",
+                        "base": 1.16,
+                        "per_level_above_first": 0.17
+                    }
+                }
+            }
+        ]
+    }
+}

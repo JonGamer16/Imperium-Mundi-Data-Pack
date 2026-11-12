@@ -1,0 +1,45 @@
+{
+    "description": {
+        "text": "Ash Cutter",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/weapon",
+    "exclusive_set": "minecraft:fire_aspect",
+    "slots": [
+        "mainhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 3,
+    "effects": {
+        "minecraft:damage": [
+            {
+                "requirements": {
+                    "type": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                        "flags": {
+                            "is_on_fire": true
+                        }
+                    }
+                },
+                "effect": {
+                    "type": "minecraft:add",
+                    "value": {
+                        "type": "minecraft:linear",
+                        "base": 1,
+                        "per_level_above_first": 1
+                    }
+                }
+            }
+        ]
+    }
+}

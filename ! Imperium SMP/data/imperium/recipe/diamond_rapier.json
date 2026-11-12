@@ -1,40 +1,34 @@
 {
     "type": "crafting_shaped",
     "category": "equipment",
-    "pattern":
-    [
+    "pattern": [
         "  d",
         "dd ",
         "sd "
     ],
-    "key": 
-    {
-        "s":"stick",
-        "d":"diamond"
+    "key": {
+        "s": "stick",
+        "d": "diamond"
     },
-    "result": 
-    {
+    "result": {
         "id": "diamond_sword",
         "count": 1,
-        "components":
-        {
-            "minecraft:item_name":
-                "Diamond Rapier",
-            "attribute_modifiers": 
-            [
+        "components": {
+            "item_name": "Diamond Rapier",
+            "attribute_modifiers": [
                 {
                     "type": "attack_damage",
-                    "amount": 1,
+                    "amount": 3,
                     "operation": "add_value",
                     "slot": "mainhand",
-                    "id": "attack_damage"
+                    "id": "base_attack_damage"
                 },
                 {
                     "type": "attack_speed",
-                    "amount": 2,
+                    "amount": -1,
                     "operation": "add_value",
                     "slot": "mainhand",
-                    "id": "attack_speed"
+                    "id": "base_attack_speed"
                 },
                 {
                     "type": "attack_knockback",
@@ -44,9 +38,11 @@
                     "id": "attack_knockback"
                 }
             ],
-            "enchantable":{
+            "minimum_attack_charge": 1,
+            "enchantable": {
                 "value": 10
-            }
+            },
+            "damage_type": "imperium:light"
         }
     }
 }

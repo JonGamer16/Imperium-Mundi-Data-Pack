@@ -1,0 +1,45 @@
+{
+    "description": {
+        "text": "Low Stance",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/melee_weapon",
+    "slots": [
+        "mainhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 2,
+    "effects": {
+        "minecraft:damage": [
+            {
+                "requirements": {
+                    "type": "minecraft:entity_properties",
+                    "entity": "attacker",
+                    "predicate": {
+                        "flags": {
+                            "is_sneaking": true,
+                            "is_on_ground": true
+                        }
+                    }
+                },
+                "effect": {
+                    "type": "minecraft:add",
+                    "value": {
+                        "type": "minecraft:linear",
+                        "base": 2,
+                        "per_level_above_first": 2
+                    }
+                }
+            }
+        ]
+    }
+}

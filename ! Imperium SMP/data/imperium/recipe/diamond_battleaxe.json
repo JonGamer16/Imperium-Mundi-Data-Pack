@@ -1,0 +1,49 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "dsd",
+        "dsd",
+        " s "
+    ],
+    "key": {
+        "s": "stick",
+        "d": "diamond"
+    },
+    "result": {
+        "id": "diamond_axe",
+        "count": 1,
+        "components": {
+            "item_name": "Diamond Battleaxe",
+            "attribute_modifiers": [
+                {
+                    "type": "attack_damage",
+                    "amount": 10,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "base_attack_damage"
+                },
+                {
+                    "type": "attack_speed",
+                    "amount": -3.2,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "base_attack_speed"
+                },
+                {
+                    "type": "attack_knockback",
+                    "amount": 0.5,
+                    "operation": "add_multiplied_base",
+                    "slot": "mainhand",
+                    "id": "attack_knockback"
+                }
+            ],
+            "enchantments": {
+                "imperium:two_handed_curse": 1
+            },
+            "enchantable": {
+                "value": 10
+            }
+        }
+    }
+}

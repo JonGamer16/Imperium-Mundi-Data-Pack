@@ -1,0 +1,42 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "ddd",
+        "  s",
+        "  s"
+    ],
+    "key": {
+        "s": "stick",
+        "d": "diamond"
+    },
+    "result": {
+        "id": "diamond_hoe",
+        "count": 1,
+        "components": {
+            "item_name": "Diamond Scythe",
+            "attribute_modifiers": [
+                {
+                    "type": "attack_damage",
+                    "amount": 8,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "base_attack_damage"
+                },
+                {
+                    "type": "attack_speed",
+                    "amount": -3,
+                    "operation": "add_value",
+                    "slot": "mainhand",
+                    "id": "base_attack_speed"
+                }
+            ],
+            "enchantments": {
+                "imperium:two_handed_curse": 1
+            },
+            "enchantable": {
+                "value": 10
+            }
+        }
+    }
+}

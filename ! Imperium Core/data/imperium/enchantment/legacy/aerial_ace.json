@@ -1,0 +1,68 @@
+{
+    "description": {
+        "text": "Aerial Ace",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/weapon",
+    "slots": [
+        "any"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 2,
+    "effects": {
+        "minecraft:damage": [
+            {
+                "requirements": {
+                    "type": "minecraft:any_of",
+                    "terms": [
+                        {
+                            "type": "minecraft:entity_properties",
+                            "entity": "attacker",
+                            "predicate": {
+                                "flags": {
+                                    "is_fall_flying": true
+                                },
+                                "movement": {
+                                    "speed": {
+                                        "min": 1
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "minecraft:entity_properties",
+                            "entity": "attacker",
+                            "predicate": {
+                                "flags": {
+                                    "is_flying": true
+                                },
+                                "movement": {
+                                    "speed": {
+                                        "min": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "effect": {
+                    "type": "minecraft:multiply",
+                    "factor": {
+                        "type": "minecraft:linear",
+                        "base": 1.5,
+                        "per_level_above_first": 0.5
+                    }
+                }
+            }
+        ]
+    }
+}

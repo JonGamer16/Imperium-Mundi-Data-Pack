@@ -27,7 +27,34 @@ scoreboard objectives add im_arrowAge dummy
 scoreboard objectives add im_tsStart dummy
 scoreboard objectives add im_tsLast dummy
 advancement revoke @a only imperium:enchantments/true_shot_draw
+# Deflection: the blocked-hit trigger self-revokes; this catches one left granted by a failed reward.
+advancement revoke @a only imperium:enchantments/deflection_block
 # Knockback Control: game tick the holder was last seen sprinting
 scoreboard objectives add im.kbSprint dummy
+# Offhand Attack: ticks until the bonus hit is ready again (set by offhand_cd, counted down in core/tick)
+scoreboard objectives add im_offhandCd dummy
+
+# Legacy enchantments (enchantments/legacy/*, ported from legacy/mundi-2026; core/tick cleans up)
+scoreboard objectives add im_health health
+scoreboard objectives add im_powersmash dummy
+scoreboard objectives add im_tipper dummy
+scoreboard objectives add im_tipperReach dummy
+scoreboard objectives add im_tipperStep dummy
+scoreboard objectives add im_temperEq dummy
+scoreboard objectives add im_temperBonus dummy
+scoreboard objectives add im_legacyLsEq dummy
+scoreboard objectives add im_legacyLsDealt custom:damage_dealt
+scoreboard objectives add im_chinksEq dummy
+scoreboard objectives add im_chinksWeapon dummy
+scoreboard objectives add im_chinksArmor dummy
+scoreboard objectives add im_chinksWeaponPrev dummy
+scoreboard objectives add im_chinksArmorPrev dummy
+scoreboard objectives add im_brittleTaken custom:damage_taken
+scoreboard objectives add im_brittlePrev dummy
+scoreboard objectives add im_brittleHit dummy
+scoreboard objectives add im_brittleBank dummy
+scoreboard objectives add im_brittleDura dummy
+# The reward self-revokes; this catches a trigger left granted by a failed reward.
+advancement revoke @a only imperium:enchantments/legacy/combat_hit
 
 function imperium:main/constants

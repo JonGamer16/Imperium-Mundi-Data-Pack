@@ -31,6 +31,7 @@ advancement revoke @s only imperium:combat/hurt_by_player
 advancement revoke @s only imperium:combat/rod_broke
 advancement revoke @s only imperium:combat/shot_arrow
 advancement revoke @s only imperium:combat/venom_bite
+advancement revoke @s only imperium:enchantments/legacy/combat_hit
 advancement revoke @s only imperium:enchantments/reversal_block
 advancement revoke @s only imperium:leave_spawn
 advancement revoke @s only imperium:levent_chorus

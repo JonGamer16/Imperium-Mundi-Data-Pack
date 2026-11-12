@@ -1,0 +1,32 @@
+{
+    "description": {
+        "text": "Barbs",
+        "color": "gold"
+    },
+    "supported_items": "minecraft:fishing_rod",
+    "slots": [
+        "mainhand",
+        "offhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 1,
+    "effects": {
+        "minecraft:projectile_spawned": [
+            {
+                "effect": {
+                    "type": "minecraft:run_function",
+                    "function": "imperium:enchantments/legacy/barbs_cast"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "description": {
+        "text": "Spring",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/foot_armor",
+    "slots": [
+        "feet"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 2,
+    "effects": {
+        "minecraft:attributes": [
+            {
+                "attribute": "minecraft:jump_strength",
+                "id": "imperium:enchantment.spring",
+                "amount": {
+                    "type": "minecraft:linear",
+                    "base": 0.5,
+                    "per_level_above_first": 0.5
+                },
+                "operation": "add_multiplied_base"
+            }
+        ]
+    }
+}

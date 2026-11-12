@@ -7,7 +7,7 @@
 #   custom_data="{imperium_kb:{horizontal:30,vertical:0}}"
 #   horizontal  % of vanilla horizontal knockback kept: 100 vanilla, 30 light, 0 none, -50 pulls in
 #   vertical    extra upward push, % of a normal hit's 0.4 b/t lift: 50 launches, -100 flattens
-# SMP weapons get the enchantment and their tooltip line from scripts/sync_items.ts.
+# SMP weapons get the enchantment and their tooltip line from the SMP pack's scripts/build_items.ts (kb field).
 # Melee by players only (the enchantment's requirement): a mob attacker has no SelectedItem.
 
 tag @s add im.kb_victim

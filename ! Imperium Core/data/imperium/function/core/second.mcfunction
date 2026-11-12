@@ -5,3 +5,6 @@ scoreboard players set #core1s im.temp 0
 # these arrows so they aren't aged twice.
 scoreboard players add @e[type=#minecraft:arrows,tag=im.straight_flight] im_arrowAge 1
 kill @e[type=#minecraft:arrows,tag=im.straight_flight,scores={im_arrowAge=10..}]
+
+# Curse of Chinks: wear changes slowly and reading it spawns a display, so once a second is enough.
+execute as @a[scores={im_chinksEq=1..}] at @s run function imperium:enchantments/legacy/chinks_calc

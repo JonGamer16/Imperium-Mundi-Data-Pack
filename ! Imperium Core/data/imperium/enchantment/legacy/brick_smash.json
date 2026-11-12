@@ -1,0 +1,46 @@
+{
+    "description": {
+        "text": "Brick Smash",
+        "color": "gold"
+    },
+    "supported_items": "#minecraft:enchantable/weapon",
+    "slots": [
+        "mainhand"
+    ],
+    "weight": 1,
+    "anvil_cost": 2,
+    "min_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_cost": {
+        "base": 2,
+        "per_level_above_first": 1
+    },
+    "max_level": 3,
+    "effects": {
+        "minecraft:damage": [
+            {
+                "requirements": {
+                    "type": "minecraft:entity_properties",
+                    "entity": "attacker",
+                    "predicate": {
+                        "stepping_on": {
+                            "block": {
+                                "blocks": "#minecraft:stone_bricks"
+                            }
+                        }
+                    }
+                },
+                "effect": {
+                    "type": "minecraft:multiply",
+                    "factor": {
+                        "type": "minecraft:linear",
+                        "base": 1.16,
+                        "per_level_above_first": 0.17
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -3,6 +3,17 @@
 Newest first. Dates are when the change was made in the test world. The matching commit, once
 there is one, carries the same date in its title.
 
+## 2026-11-11 — SMP shields + Deflection enchantment *(Deflection tested on mobs; rest untested)*
+
+- `imperium:deflection` (Core, shields): when you block a melee hit holding a Deflection shield,
+  the attacker (player or mob) takes one standing vanilla hit's knockback away from you. No damage.
+  Built on `kb_control_rebuild`, so it respects knockback resistance. Trigger:
+  `advancement/enchantments/deflection_block` (`entity_hurt_player`, `blocked`, direct only).
+- SMP shields in `scripts/items/misc.ts`: Buckler (sprint while blocking, Fencer's 50% / 60° block),
+  Kite (Deflection, 90° arc), Heater (0.1 s raise, 90° arc, lets knockback through), Lantern
+  (+4 toughness, +0.5 damage in either hand, 6 damage / 1.6 speed in the main hand, 90° arc, lets
+  knockback through). "Lets knockback through" = blocks 99.9%, not 100%: unconfirmed in game.
+
 ## 2026-11-08 — True Shot bow enchantment, in Core *(tested 2026-11-09: full draws stack)*
 
 - `imperium:true_shot` (bows): arrows ignore the shooter's momentum and vanilla's random spread.
@@ -11,6 +22,45 @@ there is one, carries the same date in its title.
 - Draw time comes from a `using_item` advancement (`enchantments/true_shot_draw`) that records the
   game tick a draw started; no tick function. Mobs, or a shot without a draw record, stay vanilla.
 - Debug: `/function imperium:test/toggle_true_shot_trace` prints each step per arrow.
+
+## 2026-11-05 — Legacy enchantments back, in Core *(all untested)*
+
+- 20 enchantments from `legacy/mundi-2026` ported to 26.3 under `imperium:legacy/<name>`
+  (`enchantment/legacy/`, `function/enchantments/legacy/`). They work without kits.
+  `/function imperium:test/legacy_give` hands out a test item for each.
+- Condition-only: Aerial Ace, Ash Cutter, Brick Smash, Flammable, Low Stance, Magic Protection, Melee
+  Protection, Rage, Sneak Guard, Spring, Thrust. With functions: Barbs, Chinks, Embrittlement, Life
+  Steal, Power Smash, Shield Pierce, Temper, Tipper, Touch of Death.
+- Not ported: Backstab, Crits, Single Use, Two-Handed (already in Core); Light (replaced by Knockback
+  Control + the `imperium:light` damage type); Rapid (unfinished); the 6 vanilla enchantment overrides.
+- Rebuilt rather than copied, because the old version couldn't work or was costly:
+  - Temper: modifier on the player, not rewritten onto the held item each tick through a minecart.
+  - Embrittlement: reads the damage_taken stat on hit, sets item damage directly, no minecart.
+  - Chinks: measures max durability, so it works on vanilla-durability items. Updates once a second.
+  - Barbs: bobbers are marked by `projectile_spawned` and credited to their caster, no proximity guess.
+  - Life Steal: heals from damage dealt with the weapon out; 10 clouds' worth of copies became one macro.
+  - Tipper: stops at the first target, skips the line with nothing near.
+  - Sneak Guard: blindness comes from the enchantment; no cloud per piece per tick.
+- Spring and Sneak Guard now work only when worn (were `any` slot, so holding them counted).
+
+## 2026-11-02 — SMP items built from one source
+
+- SMP items are now defined in `! Imperium SMP/scripts/items/` (`weapons.ts`, `armor.ts`, `misc.ts`)
+  and written to recipes + loot tables by `scripts/build_items.ts`. Replaces `sync_items.ts`.
+- Armor sets: one entry makes all four pieces, with per-piece armor values, set-wide enchantments and
+  vanilla armor recipe shapes.
+- Fixed: the Diamond Glaive's name was a JSON string and showed as raw text.
+- Knockback Control is in `#minecraft:curse` (Core) so a grindstone keeps it. Its description sets
+  `color: gray`, which should keep the tooltip from turning red. *(untested)*
+- `build_items.ts`: `damage` and `speed` are now final tooltip values (written as vanilla's
+  `base_attack_damage` / `base_attack_speed` modifiers, so the tooltip shows green totals).
+- Moved to Core so SMP items can use them: damage type `imperium:light` (+ its `bypasses_cooldown`
+  entry) and the Offhand Attack enchantment. Its bonus hit is now credited to whoever attacked (was
+  Smokey-only), and Core's tick counts `im_offhandCd` down for every player (was Smokey's loop_kit).
+- Ported Two-Handed (`imperium:two_handed_curse`, a curse) from the legacy pack to Core, in 26.3 format.
+- SMP weapons: 11 diamond weapons with full-charge/bypass-cooldown (rapier, drill), stackable
+  unbreakable javelin, half-damage blocking saber, Two-Handed heavies, and Offhand Attack + Crits 2
+  on the dagger. *(untested)*
 
 ## 2026-10-31 — Knockback Control on player victims *(untested)*
 

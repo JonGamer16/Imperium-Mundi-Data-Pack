@@ -24,9 +24,4 @@ execute as @e[type=area_effect_cloud,tag=im.smoke_bomb] at @s run function imper
 execute as @a[predicate=imperium:ability_zone,predicate=imperium:has_bad_omen] run function imperium:kits/smokey/mark_apply
 execute as @e[type=!player,predicate=imperium:has_bad_omen] run function imperium:kits/smokey/mark_apply
 
-# Offhand Attack timer: tick down each online Smokey's per-player cooldown.
-# loop_kit runs once (server context, no @s), so we must iterate the players explicitly.
-execute \
-    as @a[tag=im.kit_smokey] \
-    if score @s im_offhandCd matches 1.. \
-    run scoreboard players remove @s im_offhandCd 1
+# Offhand Attack timer: counted down in Core's core/tick (the enchantment moved to Core).
