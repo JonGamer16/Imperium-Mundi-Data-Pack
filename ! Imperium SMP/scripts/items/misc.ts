@@ -30,7 +30,7 @@ export default {
     // Fencer's buckler without the kit parry: sprint while blocking, half damage from players, mobs
     // and projectiles in a narrow 60° arc, instant raise. Keeps vanilla durability.
     buckler_shield: {
-        name: "Buckler Shield", base: "shield",
+        name: "Buckler Shield", base: "shield", model: "imperium:buckler_shield",
         lore: ["Sprint while blocking"],
         components: {
             use_effects: { can_sprint: true, speed_multiplier: 0.5 },
@@ -70,7 +70,7 @@ export default {
     // A blocking weapon. In either hand: +4 toughness, +0.5 attack damage. In the main hand it also
     // hits like a sword: 1 base + 4.5 + 0.5 = 6 damage at 1.6 attacks/s.
     lantern_shield: {
-        name: "Lantern Shield", base: "shield",
+        name: "Lantern Shield", base: "shield", model: "imperium:lantern_shield",
         lore: ["Doesn't stop knockback"],
         damage: 5.5, speed: 1.6,
         attributes: [

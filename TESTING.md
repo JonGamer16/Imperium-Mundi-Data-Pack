@@ -17,6 +17,7 @@ separately in `! Imperium Kit PVP/zz_todo.txt`.
 
 - [ ] **SMP shields** (after the next `build_items.ts` run): blocking angles (90° arc), Heater's 0.1 s
   raise, Buckler sprint-blocking, Lantern's toughness / damage in each hand, recipes.
+- [ ] **Diamond Saber block:** half damage from melee and arrows inside a 30° arc only, knockback still lands.
 - [ ] **SMP weapons:** the 11 diamond weapons, and Offhand Attack + Crits 2 on the dagger.
 - [ ] **Legacy enchantments** (`/function imperium:test/legacy_give`): all 20.
 - [ ] **Knockback Control tooltip:** gray, not red, and it survives a grindstone.

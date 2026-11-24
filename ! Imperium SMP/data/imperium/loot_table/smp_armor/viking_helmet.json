@@ -1,0 +1,40 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "leather_helmet",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Viking Helmet",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 2,
+                                        "operation": "add_value",
+                                        "slot": "head",
+                                        "id": "armor.helmet"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 8,
+                                        "operation": "add_value",
+                                        "slot": "head",
+                                        "id": "armor_toughness.helmet"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "imperium:legacy/temper": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

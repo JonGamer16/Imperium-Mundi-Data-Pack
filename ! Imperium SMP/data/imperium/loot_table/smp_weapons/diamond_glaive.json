@@ -53,7 +53,8 @@
                                 "enchantments": {
                                     "imperium:knockback_control": 1
                                 },
-                                "minimum_attack_charge": 0.85
+                                "minimum_attack_charge": 0.85,
+                                "item_model": "imperium:diamond_glaive"
                             }
                         }
                     ]

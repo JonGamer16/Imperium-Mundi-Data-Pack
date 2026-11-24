@@ -31,6 +31,7 @@ type Common = {
     enchantments?: Record<string, number>; // { protection: 2, "imperium:foo": 1 }
     enchantable?: number;                  // enchanting-table enchantability
     lore?: Lore[];
+    model?: string;                        // item_model: a resource-pack item id, e.g. "imperium:diamond_dagger"
     recipe?: Recipe;                       // omit for a loot-table-only item
     components?: Components;
 };
@@ -97,6 +98,7 @@ function common(c: Common, attrs: unknown[], extra: Components = {}): Item {
     const ench = { ...(extra.enchantments as Record<string, number>), ...c.enchantments };
     if (Object.keys(ench).length) comps.enchantments = Object.fromEntries(Object.entries(ench).map(([k, v]) => [ns(k), v]));
     if (c.enchantable !== undefined) comps.enchantable = { value: c.enchantable };
+    if (c.model) comps.item_model = c.model;
     for (const [k, v] of Object.entries(c.components ?? {})) comps[bare(k)] = v;
     return { id: c.base, count: c.count ?? 1, components: comps };
 }

@@ -1,0 +1,30 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "iron_boots",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Golem Boots",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 1,
+                                        "operation": "add_value",
+                                        "slot": "feet",
+                                        "id": "armor.boots"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

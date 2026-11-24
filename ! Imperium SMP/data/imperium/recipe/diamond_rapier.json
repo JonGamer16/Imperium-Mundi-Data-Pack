@@ -42,6 +42,7 @@
             "enchantable": {
                 "value": 10
             },
+            "item_model": "imperium:diamond_rapier",
             "damage_type": "imperium:light"
         }
     }

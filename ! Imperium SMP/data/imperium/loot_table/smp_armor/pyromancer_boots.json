@@ -1,0 +1,41 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "golden_boots",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Pyromancer Boots",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 2,
+                                        "operation": "add_value",
+                                        "slot": "feet",
+                                        "id": "armor.boots"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 4,
+                                        "operation": "add_value",
+                                        "slot": "feet",
+                                        "id": "armor_toughness.boots"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "minecraft:fire_protection": 2,
+                                    "minecraft:protection": 2
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

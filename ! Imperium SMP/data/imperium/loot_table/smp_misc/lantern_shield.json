@@ -1,0 +1,77 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "shield",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Lantern Shield",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "attack_damage",
+                                        "amount": 4.5,
+                                        "operation": "add_value",
+                                        "slot": "mainhand",
+                                        "id": "base_attack_damage"
+                                    },
+                                    {
+                                        "type": "attack_speed",
+                                        "amount": -2.4,
+                                        "operation": "add_value",
+                                        "slot": "mainhand",
+                                        "id": "base_attack_speed"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 4,
+                                        "operation": "add_value",
+                                        "slot": "hand",
+                                        "id": "imperium:lantern_shield_toughness"
+                                    },
+                                    {
+                                        "type": "attack_damage",
+                                        "amount": 0.5,
+                                        "operation": "add_value",
+                                        "slot": "hand",
+                                        "id": "imperium:lantern_shield_damage"
+                                    }
+                                ],
+                                "lore": [
+                                    {
+                                        "text": "Doesn't stop knockback",
+                                        "color": "gray",
+                                        "italic": false
+                                    }
+                                ],
+                                "item_model": "imperium:lantern_shield",
+                                "blocks_attacks": {
+                                    "block_delay_seconds": 0.25,
+                                    "damage_reductions": [
+                                        {
+                                            "base": 0,
+                                            "factor": 0.999,
+                                            "horizontal_blocking_angle": 45
+                                        }
+                                    ],
+                                    "item_damage": {
+                                        "threshold": 3,
+                                        "base": 1,
+                                        "factor": 1
+                                    },
+                                    "bypassed_by": "#minecraft:bypasses_shield",
+                                    "block_sound": "minecraft:item.shield.block",
+                                    "disabled_sound": "minecraft:item.shield.break"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

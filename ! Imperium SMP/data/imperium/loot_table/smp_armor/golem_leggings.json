@@ -1,0 +1,30 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "iron_leggings",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Golem Leggings",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 4,
+                                        "operation": "add_value",
+                                        "slot": "legs",
+                                        "id": "armor.leggings"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

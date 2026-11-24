@@ -1,0 +1,40 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "iii",
+        " i ",
+        " i "
+    ],
+    "key": {
+        "i": "iron_ingot"
+    },
+    "result": {
+        "id": "shield",
+        "count": 1,
+        "components": {
+            "item_name": "Kite Shield",
+            "enchantments": {
+                "imperium:deflection": 1
+            },
+            "blocks_attacks": {
+                "block_delay_seconds": 0.25,
+                "damage_reductions": [
+                    {
+                        "base": 0,
+                        "factor": 1,
+                        "horizontal_blocking_angle": 45
+                    }
+                ],
+                "item_damage": {
+                    "threshold": 3,
+                    "base": 1,
+                    "factor": 1
+                },
+                "bypassed_by": "#minecraft:bypasses_shield",
+                "block_sound": "minecraft:item.shield.block",
+                "disabled_sound": "minecraft:item.shield.break"
+            }
+        }
+    }
+}

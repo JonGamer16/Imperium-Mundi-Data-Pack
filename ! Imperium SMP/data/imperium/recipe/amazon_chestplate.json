@@ -1,0 +1,33 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "X X",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": "leather"
+    },
+    "result": {
+        "id": "leather_chestplate",
+        "count": 1,
+        "components": {
+            "item_name": "Amazon Chestplate",
+            "attribute_modifiers": [
+                {
+                    "type": "armor",
+                    "amount": 5,
+                    "operation": "add_value",
+                    "slot": "chest",
+                    "id": "armor.chestplate"
+                }
+            ],
+            "enchantments": {
+                "minecraft:swift_sneak": 3,
+                "minecraft:protection": 2,
+                "minecraft:feather_falling": 4
+            }
+        }
+    }
+}

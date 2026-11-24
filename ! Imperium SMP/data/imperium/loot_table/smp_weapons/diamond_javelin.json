@@ -30,6 +30,7 @@
                                 "enchantable": {
                                     "value": 10
                                 },
+                                "item_model": "imperium:diamond_javelin",
                                 "!max_damage": {},
                                 "!damage": {},
                                 "max_stack_size": 4

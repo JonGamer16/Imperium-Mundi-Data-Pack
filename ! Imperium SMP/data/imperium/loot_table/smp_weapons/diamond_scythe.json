@@ -32,7 +32,8 @@
                                 },
                                 "enchantable": {
                                     "value": 10
-                                }
+                                },
+                                "item_model": "imperium:diamond_scythe"
                             }
                         }
                     ]

@@ -1,0 +1,39 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "X X",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": "gold_ingot"
+    },
+    "result": {
+        "id": "golden_chestplate",
+        "count": 1,
+        "components": {
+            "item_name": "Pyromancer Chestplate",
+            "attribute_modifiers": [
+                {
+                    "type": "armor",
+                    "amount": 6,
+                    "operation": "add_value",
+                    "slot": "chest",
+                    "id": "armor.chestplate"
+                },
+                {
+                    "type": "armor_toughness",
+                    "amount": 4,
+                    "operation": "add_value",
+                    "slot": "chest",
+                    "id": "armor_toughness.chestplate"
+                }
+            ],
+            "enchantments": {
+                "minecraft:fire_protection": 2,
+                "minecraft:protection": 2
+            }
+        }
+    }
+}

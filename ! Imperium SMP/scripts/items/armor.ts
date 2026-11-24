@@ -14,14 +14,14 @@ export default {
     viking: {
         name: "Viking", base: "leather",
         armor: [2, 6, 5, 2], toughness: 8,
-        enchantments: { imperium:temper: 1 },
+        enchantments: { "imperium:legacy/temper": 1 },
         material: "leather"
     },
     pyromancer: {
-        name: "Pyromancer", base: "gold",
+        name: "Pyromancer", base: "golden",
         armor: [2, 6, 5, 2], toughness: 4,
         enchantments: { fire_protection: 2, protection: 2 },
-        material: "gold"
+        material: "gold_ingot"
     },
     amazon: {
         name: "Amazon", base: "leather",
@@ -37,7 +37,7 @@ export default {
     golem: {
         name: "Golem", base: "iron",
         armor: [2, 5, 4, 1], toughness: 0,
-        material: "iron"
+        material: "iron_ingot"
     },
     ranger: {
         name: "Ranger", base: "leather",

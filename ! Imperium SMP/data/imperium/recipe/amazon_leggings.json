@@ -1,0 +1,33 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "XXX",
+        "X X",
+        "X X"
+    ],
+    "key": {
+        "X": "leather"
+    },
+    "result": {
+        "id": "leather_leggings",
+        "count": 1,
+        "components": {
+            "item_name": "Amazon Leggings",
+            "attribute_modifiers": [
+                {
+                    "type": "armor",
+                    "amount": 4,
+                    "operation": "add_value",
+                    "slot": "legs",
+                    "id": "armor.leggings"
+                }
+            ],
+            "enchantments": {
+                "minecraft:swift_sneak": 3,
+                "minecraft:protection": 2,
+                "minecraft:feather_falling": 4
+            }
+        }
+    }
+}

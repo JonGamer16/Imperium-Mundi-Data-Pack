@@ -14,7 +14,7 @@
         "id": "diamond_shovel",
         "count": 1,
         "components": {
-            "item_name": "Diamond War Spade",
+            "item_name": "Diamond Monk Spade",
             "attribute_modifiers": [
                 {
                     "type": "attack_damage",

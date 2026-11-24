@@ -1,0 +1,30 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "leather_helmet",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Ranger Helmet",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 2,
+                                        "operation": "add_value",
+                                        "slot": "head",
+                                        "id": "armor.helmet"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        "X X",
+        "X X"
+    ],
+    "key": {
+        "X": "leather"
+    },
+    "result": {
+        "id": "leather_boots",
+        "count": 1,
+        "components": {
+            "item_name": "Amazon Boots",
+            "attribute_modifiers": [
+                {
+                    "type": "armor",
+                    "amount": 1,
+                    "operation": "add_value",
+                    "slot": "feet",
+                    "id": "armor.boots"
+                }
+            ],
+            "enchantments": {
+                "minecraft:swift_sneak": 3,
+                "minecraft:protection": 2,
+                "minecraft:feather_falling": 4
+            }
+        }
+    }
+}

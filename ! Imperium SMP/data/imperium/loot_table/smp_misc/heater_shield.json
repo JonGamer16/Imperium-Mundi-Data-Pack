@@ -1,0 +1,51 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "shield",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Heater Shield",
+                                "lore": [
+                                    {
+                                        "text": "Raises faster",
+                                        "color": "gray",
+                                        "italic": false
+                                    },
+                                    {
+                                        "text": "Doesn't stop knockback",
+                                        "color": "gray",
+                                        "italic": false
+                                    }
+                                ],
+                                "blocks_attacks": {
+                                    "block_delay_seconds": 0.1,
+                                    "damage_reductions": [
+                                        {
+                                            "base": 0,
+                                            "factor": 0.999,
+                                            "horizontal_blocking_angle": 45
+                                        }
+                                    ],
+                                    "item_damage": {
+                                        "threshold": 3,
+                                        "base": 1,
+                                        "factor": 1
+                                    },
+                                    "bypassed_by": "#minecraft:bypasses_shield",
+                                    "block_sound": "minecraft:item.shield.block",
+                                    "disabled_sound": "minecraft:item.shield.break"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

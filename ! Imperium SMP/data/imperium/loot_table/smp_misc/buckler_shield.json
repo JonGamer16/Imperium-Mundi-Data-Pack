@@ -1,0 +1,64 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "shield",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Buckler Shield",
+                                "lore": [
+                                    {
+                                        "text": "Sprint while blocking",
+                                        "color": "gray",
+                                        "italic": false
+                                    }
+                                ],
+                                "item_model": "imperium:buckler_shield",
+                                "use_effects": {
+                                    "can_sprint": true,
+                                    "speed_multiplier": 0.5
+                                },
+                                "blocks_attacks": {
+                                    "block_delay_seconds": 0,
+                                    "damage_reductions": [
+                                        {
+                                            "type": "#is_player_attack",
+                                            "base": 0,
+                                            "factor": 0.5,
+                                            "horizontal_blocking_angle": 30
+                                        },
+                                        {
+                                            "type": "mob_attack",
+                                            "base": 0,
+                                            "factor": 0.5,
+                                            "horizontal_blocking_angle": 30
+                                        },
+                                        {
+                                            "type": "#is_projectile",
+                                            "base": 0,
+                                            "factor": 0.5,
+                                            "horizontal_blocking_angle": 30
+                                        }
+                                    ],
+                                    "item_damage": {
+                                        "threshold": 3,
+                                        "base": 1,
+                                        "factor": 1
+                                    },
+                                    "bypassed_by": "#minecraft:bypasses_shield",
+                                    "block_sound": "minecraft:item.shield.block",
+                                    "disabled_sound": "minecraft:item.shield.break"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

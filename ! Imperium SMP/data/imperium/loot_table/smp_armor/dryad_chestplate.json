@@ -1,0 +1,30 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "leather_chestplate",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Dryad Chestplate",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 5,
+                                        "operation": "add_value",
+                                        "slot": "chest",
+                                        "id": "armor.chestplate"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

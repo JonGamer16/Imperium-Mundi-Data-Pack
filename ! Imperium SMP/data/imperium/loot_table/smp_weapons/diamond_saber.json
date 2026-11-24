@@ -33,11 +33,23 @@
                                 "blocks_attacks": {
                                     "damage_reductions": [
                                         {
+                                            "type": "#is_player_attack",
                                             "base": 0,
-                                            "factor": 0.5
+                                            "factor": 0.5,
+                                            "horizontal_blocking_angle": 15
+                                        },
+                                        {
+                                            "type": [
+                                                "mob_attack",
+                                                "mob_attack_no_aggro",
+                                                "arrow"
+                                            ],
+                                            "base": 0,
+                                            "factor": 0.5,
+                                            "horizontal_blocking_angle": 15
                                         }
                                     ],
-                                    "block_sound": "minecraft:item.shield.block",
+                                    "block_sound": "minecraft:block.anvil.land",
                                     "disabled_sound": "minecraft:item.shield.break"
                                 }
                             }

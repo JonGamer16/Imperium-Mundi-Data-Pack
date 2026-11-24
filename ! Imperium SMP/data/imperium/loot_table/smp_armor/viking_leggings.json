@@ -1,0 +1,40 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "leather_leggings",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Viking Leggings",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 5,
+                                        "operation": "add_value",
+                                        "slot": "legs",
+                                        "id": "armor.leggings"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 8,
+                                        "operation": "add_value",
+                                        "slot": "legs",
+                                        "id": "armor_toughness.leggings"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "imperium:legacy/temper": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

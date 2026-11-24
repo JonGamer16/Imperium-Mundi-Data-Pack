@@ -1,0 +1,41 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "golden_leggings",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Pyromancer Leggings",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 5,
+                                        "operation": "add_value",
+                                        "slot": "legs",
+                                        "id": "armor.leggings"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 4,
+                                        "operation": "add_value",
+                                        "slot": "legs",
+                                        "id": "armor_toughness.leggings"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "minecraft:fire_protection": 2,
+                                    "minecraft:protection": 2
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

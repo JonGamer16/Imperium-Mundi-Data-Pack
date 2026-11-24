@@ -1,0 +1,40 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "leather_chestplate",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_components",
+                            "components": {
+                                "item_name": "Viking Chestplate",
+                                "attribute_modifiers": [
+                                    {
+                                        "type": "armor",
+                                        "amount": 6,
+                                        "operation": "add_value",
+                                        "slot": "chest",
+                                        "id": "armor.chestplate"
+                                    },
+                                    {
+                                        "type": "armor_toughness",
+                                        "amount": 8,
+                                        "operation": "add_value",
+                                        "slot": "chest",
+                                        "id": "armor_toughness.chestplate"
+                                    }
+                                ],
+                                "enchantments": {
+                                    "imperium:legacy/temper": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
